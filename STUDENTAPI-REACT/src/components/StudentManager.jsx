@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css';
-import config from './config.js';
 
 const StudentManager = () => {
   const [students, setStudents] = useState([]);
@@ -22,7 +21,7 @@ const StudentManager = () => {
   const [message, setMessage] = useState('');
   const [editMode, setEditMode] = useState(false);
 
-  const baseUrl = `${config.url}/studentapi`;
+  const baseUrl = `${import.meta.env.VITE_API_URL}/studentapi`;
 
   useEffect(() => {
     fetchAllStudents();
