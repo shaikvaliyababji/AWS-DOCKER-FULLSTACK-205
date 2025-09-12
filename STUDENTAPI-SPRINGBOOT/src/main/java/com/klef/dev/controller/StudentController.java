@@ -22,7 +22,7 @@ public class StudentController {
     @GetMapping("/")
     public String home() 
     {
-        return "Jenkins Full Stack Deployment Demo";
+        return "Docker Full Stack Deployment Demo";
     }
     
 
