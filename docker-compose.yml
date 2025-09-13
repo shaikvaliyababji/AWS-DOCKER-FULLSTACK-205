@@ -3,14 +3,12 @@ services:
     container_name: mysql-db
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: studentdb
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: kludb
       # MYSQL_USER: klu
       # MYSQL_PASSWORD: klu
     ports:
       - "3307:3306"
-    networks:
-      springboot-mysql-net:
 
   backend:
     container_name: springboot
@@ -21,8 +19,6 @@ services:
       - "2025:2000"
     depends_on:
       - mysqldb
-    networks:
-      springboot-mysql-net:
     restart: on-failure
 
   frontend:
@@ -34,8 +30,3 @@ services:
       - "3000:80"
     depends_on:
       - backend
-    networks:
-      springboot-mysql-net:
-
-networks:
-  springboot-mysql-net:
