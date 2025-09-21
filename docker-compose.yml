@@ -5,6 +5,8 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: docker
       MYSQL_DATABASE: studentdb
+    ports:
+      - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql   # volume added here
 
@@ -14,7 +16,7 @@ services:
       context: ./STUDENTAPI-SPRINGBOOT
       dockerfile: ../STUDENTAPI-FULLSTACK/backend.Dockerfile
     ports:
-      - "2025:8080"
+      - "8080:8080"
     depends_on:
       - mysqldb
     restart: on-failure
