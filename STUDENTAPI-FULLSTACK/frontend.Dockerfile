@@ -8,7 +8,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Serve production
-FROM node:20-alpine
+FROM nginx:alpine
 WORKDIR /usr/share/nginx/html
 
 COPY nginx.conf /etc/nginx/conf.d/default.conf
