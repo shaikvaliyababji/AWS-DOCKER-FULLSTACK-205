@@ -5,8 +5,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: docker
       MYSQL_DATABASE: studentdb
-      # MYSQL_USER: klu
-      # MYSQL_PASSWORD: klu
     ports:
       - "3307:3306"
     volumes:
