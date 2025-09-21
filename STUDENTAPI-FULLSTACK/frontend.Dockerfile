@@ -9,6 +9,10 @@ RUN npm run build
 
 # Stage 2: Serve production
 FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
+
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist ./
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
